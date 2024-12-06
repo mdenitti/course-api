@@ -21,6 +21,7 @@ const corsOptions = {
     origin: [ // List of allowed origins for CORS requests
         'http://localhost:4000', 
         'http://localhost:3000',
+        'http://localhost:5500',
         'http://localhost:5173',
         'https://yourproduction.com'
     ],
@@ -58,8 +59,12 @@ app.use('/api', authenticateApiKey);
 // Mount routes for handling `/api/courses` requests using a separate routes file
 app.use('/api/courses', require('./routes/courses'));
 
+// Mount routes for handling `/api/images` requests using a separate routes file
+app.use('/api/images', require('./routes/images'));
+
 // Image upload endpoint
 app.post('/api/uploadimage', async (req, res) => {
+    console.log(res)
     try {
         const { image } = req.body;
 

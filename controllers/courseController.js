@@ -103,7 +103,20 @@ const courseController = {
       // Handle any database errors by sending a 500 status and error message
       res.status(500).json({ message: error.message });
     }
-  }
+  },
+
+  // Get all images
+  getAllImages: async (req, res) => {
+    try {
+      // Query the database to retrieve all courses
+      const [images] = await db.query('SELECT * FROM images');
+      // Respond with the retrieved images in JSON format
+      res.json(images);
+    } catch (error) {
+      // Handle any database errors by sending a 500 status and error message
+      res.status(500).json({ message: error.message });
+    }
+  },
 };
 
 // Export the courseController object for use in other parts of the application

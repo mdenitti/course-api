@@ -17,4 +17,7 @@ router.put('/:id', courseController.updateCourse);
 // DELETE course
 router.delete('/:id', courseController.deleteCourse);
 
+// GET all images
+router.get('/images', courseController.getAllImages);
+
 module.exports = router;
